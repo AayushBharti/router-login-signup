@@ -1,11 +1,10 @@
-import React from "react";
 import frameImg from "../assets/frame.png";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
 const Template = ({ title, desc1, desc2, image, formtype, setIsLoggedIn }) => {
   return (
-    <div>
+    <div className="flex">
       <div>
         <h1>{title}</h1>
         <p>
@@ -13,7 +12,11 @@ const Template = ({ title, desc1, desc2, image, formtype, setIsLoggedIn }) => {
           <span>{desc2}</span>
         </p>
 
-        {formtype === "signup" ? <SignupForm /> : <LoginForm />}
+        {formtype === "signup" ? (
+          <SignupForm setIsLoggedIn={setIsLoggedIn} />
+        ) : (
+          <LoginForm setIsLoggedIn={setIsLoggedIn}/>
+        )}
 
         <div>
           <div></div>
