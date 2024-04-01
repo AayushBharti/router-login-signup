@@ -4,7 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router";
 
 const SignupForm = ({ setIsLoggedIn }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -36,8 +36,9 @@ const SignupForm = ({ setIsLoggedIn }) => {
     toast.success("Account Created");
     const accountData = {
       ...formData,
-      navigate("/dashboard");
     };
+    console.log(accountData);
+    navigate("/dashboard");
   }
 
   return (
