@@ -8,49 +8,63 @@ const Navbar = (props) => {
   let setIsLoggedIn = props.setIsLoggedIn;
 
   return (
-    <div className="flex max-w-[1080px] mx-auto py-2 justify-between items-center">
+    <div className="flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
       <Link to="/">
         <img src={logo} alt="" />
       </Link>
 
-      <nav className="flex gap-6">
+      <nav className="flex gap-x-6 text-richblack-100">
         <Link to="/">Home</Link>
         <Link to="/">About</Link>
         <Link to="/">Contact</Link>
       </nav>
 
       <div className="flex gap-3">
-        { !isLoggedIn &&
+        {!isLoggedIn && (
           <Link to="/login">
-            <button>
-                Login
+            <button
+              className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px]
+            rounded-[8px] border border-richblack-700"
+            >
+              Login
             </button>
           </Link>
-        }
-        { !isLoggedIn &&
+        )}
+        {!isLoggedIn && (
           <Link to="/signup">
-            <button>
-                Signup
+            <button
+              className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px]
+            rounded-[8px] border border-richblack-700"
+            >
+              Sign Up
             </button>
           </Link>
-        }
-        { isLoggedIn &&
+        )}
+        {isLoggedIn && (
           <Link to="/">
-            <button onClick={()=>{
+            <button
+              className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px]
+            rounded-[8px] border border-richblack-700"
+            >
+              onClick=
+              {() => {
                 setIsLoggedIn(false);
-                toast.success("Logged Out")
-            }}>
-                Logout
+                toast.success("Logged Out");
+              }}
+              > Logout
             </button>
           </Link>
-        }
-        { isLoggedIn &&
+        )}
+        {isLoggedIn && (
           <Link to="/dashboard">
-            <button>
-                Dashboard
+            <button
+              className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px]
+            rounded-[8px] border border-richblack-700"
+            >
+              Dashboard
             </button>
           </Link>
-        }
+        )}
       </div>
     </div>
   );
